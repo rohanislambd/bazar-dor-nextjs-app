@@ -10,6 +10,7 @@ id: number;
 categoryIcon: string;
 nameBn: string;
 today: number;
+image:string;
 unit: string;
 change: {
 dir: "up" | "down";
