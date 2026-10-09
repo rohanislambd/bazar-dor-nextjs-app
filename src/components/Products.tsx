@@ -2,6 +2,7 @@ import { IProduct } from '@/types/type';
 import React from 'react';
 import ProductCard from './ProductCard';
 import Link from 'next/link';
+import { toBanglaNumber } from './shared/common';
 
 const Products =async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
@@ -21,8 +22,7 @@ const Products =async () => {
   )
   .slice(0, 6);
 
-     const toBanglaNumber = (value: number) =>
-    String(value).replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[Number(digit)]);
+     
      
     return (
         <div className='mt-10 mx-3 md:mx-0'>

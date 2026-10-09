@@ -1,11 +1,11 @@
 import { IProduct } from "@/types/type";
 import React from "react";
+import { toBanglaNumber } from "./shared/common";
 interface IProductCard {
   product: IProduct;
 }
 const ProductCard = ({ product }: IProductCard) => {
-  const toBanglaNumber = (value: number) =>
-    String(value).replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[Number(digit)]);
+  
 //   console.log(product);
   return (
     <div className="shadow  bg-[#FFFF] rounded-xl p-4" id="product">

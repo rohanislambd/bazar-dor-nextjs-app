@@ -1,4 +1,5 @@
 import React from "react";
+import { toBanglaNumber } from "./shared/common";
 
 interface IMarket {
   market: string;
@@ -12,8 +13,7 @@ interface IProductDetailCardProps {
 }
 
 const ProductDetailCard = ({ product }: IProductDetailCardProps) => {
-  const toBanglaNumber = (value: number) =>
-    String(value).replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[Number(digit)]);
+ 
 
   const average = (product.min + product.max) / 2;
 
