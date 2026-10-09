@@ -1,4 +1,5 @@
 import CategoryHeader from "@/components/CategoryHeader";
+import CategoryProductSorting from "@/components/CategoryProductSorting";
 import ProductCard from "@/components/ProductCard";
 import { toBanglaNumber } from "@/components/shared/common";
 import { IProduct } from "@/types/type";
@@ -20,21 +21,19 @@ const CategoryDetailPage = async ({
   // console.log(data);
   return (
     <div className="container mx-auto">
-      <div className="mt-6">
+      <div className="my-6">
         
         <div className="bg-[#FFFF] rounded">
             {data.length > 0 && <CategoryHeader total={data.length} product={data[0]} />}
         </div>
+
       </div>
-        <h3 className="mt-4">মোট {toBanglaNumber(data.length)}টি পণ্য দেখানো হচ্ছে</h3>
-      <div className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 gap-3 mt-4">
-        {data.map((d) => (
-          <Link href={`/products/${d.id}`} key={d.id}>
-            {" "}
-            <ProductCard product={d}></ProductCard>{" "}
-          </Link>
-        ))}
-      </div>
+          {/* sorting */}
+         <div>
+              
+            <CategoryProductSorting data={data} />
+             
+          </div>     
     </div>
   );
 };
