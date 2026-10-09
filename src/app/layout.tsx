@@ -3,6 +3,7 @@ import {Hind_Siliguri} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
+import { Toaster } from "react-hot-toast";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
      
 
         {children}
-        
+           <Toaster />
         
         </body>
     </html>
