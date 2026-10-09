@@ -1,13 +1,17 @@
 import Image from "next/image";
+import Navlinks from "./Navlinks";
+import Link from "next/link";
 
 const Header = () => {
      const date = new Date().toLocaleDateString("bn-Bd", {
     dateStyle: "full",
   });
   return (
-    <header className="container mx-auto mt-5">
-      <div className=" flex justify-between items-center">
-        <div className="flex gap-2 items-center">
+    <header className="my-5">
+      <div className="border-b border-base-200 pb-3">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/">
+            <div className="flex gap-2 items-center">
           <div className="flex justify-center items-center bg-[#05893E] w-10 h-10 rounded-xl">
             <Image src="/logo-icon.png" alt="logo" width={18} height={28} />
           </div>
@@ -17,6 +21,7 @@ const Header = () => {
               <p>{date}</p>
           </div>
         </div>
+        </Link>
 
         <div className="flex gap-2">
           <button className="btn font-semibold">সাইন ইন</button>
@@ -25,6 +30,8 @@ const Header = () => {
           </button>
         </div>
       </div>
+      </div>
+      <Navlinks/>
     </header>
   );
 };
