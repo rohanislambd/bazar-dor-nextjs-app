@@ -12,14 +12,21 @@ const Products =async () => {
 
     // console.log(risers);
 
-    const fallers = products.filter((product) => product.change.dir === "down").sort((a,b) => b.change.pct - a.change.pct).slice(0,6);
+   const fallers = products
+  .filter((product) => product.change.dir === "down")
+  .sort(
+    (a, b) =>
+      Math.abs(b.change.pct) - Math.abs(a.change.pct)
+  )
+  .slice(0, 6);
 
-  
+     const toBanglaNumber = (value: number) =>
+    String(value).replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[Number(digit)]);
      
     return (
         <div className='mt-10 mx-3 md:mx-0'>
+            {/* Today risers product */}
             <div>
-               
                <h2 className='text-[20px] font-bold'><span className='text-red-500'>▲</span> আজ দাম বেড়েছে</h2>
                <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
                  {
@@ -27,6 +34,31 @@ const Products =async () => {
                  }
                </div>
             </div>
+
+
+            {/* Today fallers product */}
+            <div className='mt-10'>
+               <h2 className='text-[20px] font-bold'><span className='text-green-500'>▼</span> আজ দাম কমেছে</h2>
+               <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
+                 {
+                    fallers.map((product) => <ProductCard key={product.id} product={product} />)
+                 }
+               </div>
+            </div>
+
+
+            {/* All Product */}
+            <div className='mt-10'>
+               <h2 className='text-[20px] font-bold'>সব পণ্য</h2>
+               <p>মোট <span>{toBanglaNumber(products.length)}</span> টি পণ্য দেখানো হচ্ছে</p>
+               <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
+                 {
+                    products.map((product) => <ProductCard key={product.id} product={product} />)
+                 }
+               </div>
+            </div>
+
+
         </div>
     );
 };

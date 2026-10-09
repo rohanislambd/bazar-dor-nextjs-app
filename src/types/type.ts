@@ -13,7 +13,7 @@ today: number;
 image:string;
 unit: string;
 change: {
-dir: "up" | "down";
+dir: "up" | "down" | "flat";
 pct: number;
 }
 }
