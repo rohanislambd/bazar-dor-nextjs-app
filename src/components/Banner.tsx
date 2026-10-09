@@ -6,8 +6,8 @@ const Banner = () => {
     dateStyle: "full",
   });
   return (
-    <div className="bg-[#FFFFFF] rounded-xl min-h-70 py-1 px-4 mt-8 shadow">
-      <div className="flex items-center justify-between">
+    <div className="bg-[#FFFFFF] rounded-xl min-h-70 py-3 px-4 mt-8 shadow mx-3 md:mx-0 ">
+      <div className=" md:flex items-center justify-between">
         {/* text */}
         <div className="space-y-4">
           <p className="text-[#05893E]  bg-[#05893e36] max-w-45 rounded-2xl px-2 py-1">
