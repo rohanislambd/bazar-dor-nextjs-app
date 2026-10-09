@@ -7,8 +7,8 @@ const Header = () => {
     dateStyle: "full",
   });
   return (
-    <header className="my-5">
-      <div className="border-b border-base-200 pb-3">
+    <header className="py-5 bg-[#f8f8f8]">
+      <div className="border-b border-base-300 pb-3">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
             <div className="flex gap-2 items-center">

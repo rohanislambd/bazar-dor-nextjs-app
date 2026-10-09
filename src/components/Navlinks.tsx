@@ -7,7 +7,7 @@ import CategoryLinks from './CategoryLinks';
 const Navlinks =async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/categories");
     const data:ICategroy[] =await res.json();
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className='container mx-auto flex mt-4 space-x-9 px-3'>
