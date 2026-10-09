@@ -13,9 +13,9 @@ const Marquee = async () => {
 
   return (
     <div className="border-y border-base-300 py-3 bg-[#f8f8f8]">
-    <MarqueeText direction="right" duration={15}>
+    <MarqueeText direction="right" duration={10}>
       <div>
-        {products.slice(0, 15).map((product) => (
+        {products.map((product) => (
           <span key={product.id}>
             <span>{product.categoryIcon}</span>
             <span>{product.nameBn} </span>
