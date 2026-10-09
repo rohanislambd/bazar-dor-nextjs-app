@@ -1,5 +1,4 @@
 import { ICategroy } from "@/types/type";
-import Link from "next/link";
 import React from "react";
 import CategoryLinks from "./CategoryLinks";
 

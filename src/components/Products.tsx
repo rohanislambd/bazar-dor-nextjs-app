@@ -1,6 +1,7 @@
 import { IProduct } from '@/types/type';
 import React from 'react';
 import ProductCard from './ProductCard';
+import Link from 'next/link';
 
 const Products =async () => {
     const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
@@ -28,9 +29,9 @@ const Products =async () => {
             {/* Today risers product */}
             <div>
                <h2 className='text-[20px] font-bold'><span className='text-red-500'>▲</span> আজ দাম বেড়েছে</h2>
-               <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
+               <div className='grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
                  {
-                    risers.map((product) => <ProductCard key={product.id} product={product} />)
+                    risers.map((product) => <Link href={`/products/${product.id}`} key={product.id}> <ProductCard product={product} /> </Link> )
                  }
                </div>
             </div>
@@ -39,9 +40,9 @@ const Products =async () => {
             {/* Today fallers product */}
             <div className='mt-10'>
                <h2 className='text-[20px] font-bold'><span className='text-green-500'>▼</span> আজ দাম কমেছে</h2>
-               <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
+               <div className='grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
                  {
-                    fallers.map((product) => <ProductCard key={product.id} product={product} />)
+                    fallers.map((product) =>  <Link href={`/products/${product.id}`} key={product.id}> <ProductCard product={product} /> </Link>)
                  }
                </div>
             </div>
@@ -51,9 +52,9 @@ const Products =async () => {
             <div className='mt-10'>
                <h2 className='text-[20px] font-bold'>সব পণ্য</h2>
                <p>মোট <span>{toBanglaNumber(products.length)}</span> টি পণ্য দেখানো হচ্ছে</p>
-               <div className='grid  md: grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
+               <div className='grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-4'>
                  {
-                    products.map((product) => <ProductCard key={product.id} product={product} />)
+                    products.map((product) => <Link href={`/products/${product.id}`} key={product.id}> <ProductCard product={product} /> </Link>)
                  }
                </div>
             </div>
