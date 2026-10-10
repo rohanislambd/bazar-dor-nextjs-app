@@ -23,6 +23,7 @@ const CategoryDetailPage = async ({
  if ( data.length === 0) {
 notFound();
 }
+
   // console.log(data);
   return (
     <div className="container mx-auto ">
