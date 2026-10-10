@@ -25,7 +25,7 @@ const Products =async () => {
      
      
     return (
-        <div className='mt-10 mx-3 md:mx-0'>
+        <div className='mt-10 mx-3 '>
             {/* Today risers product */}
             <div>
                <h2 className='text-[20px] font-bold'><span className='text-red-500'>▲</span> আজ দাম বেড়েছে</h2>

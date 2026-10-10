@@ -1,9 +1,7 @@
 import CategoryHeader from "@/components/CategoryHeader";
 import CategoryProductSorting from "@/components/CategoryProductSorting";
-import ProductCard from "@/components/ProductCard";
-import { toBanglaNumber } from "@/components/shared/common";
 import { IProduct } from "@/types/type";
-import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const CategoryDetailPage = async ({
@@ -17,10 +15,13 @@ const CategoryDetailPage = async ({
     `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`,
   );
   const data: IProduct[] = await res.json();
-
+  
+ if ( data.length === 0) {
+notFound();
+}
   // console.log(data);
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto ">
       <div className="my-6">
         
         <div className="bg-[#FFFF] rounded">

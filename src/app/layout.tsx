@@ -30,7 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Marquee/>
      
 
-         <main className="flex-1">
+         <main className="flex-1 mx-3">
           {children}
          </main>
 

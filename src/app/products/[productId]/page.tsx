@@ -1,5 +1,6 @@
 import ProductDetailCard from "@/components/ProductDetailCard";
 import { IProduct } from "@/types/type";
+import { notFound } from "next/navigation";
 
 const ProductDetailPage = async ({
   params,
@@ -11,6 +12,10 @@ const ProductDetailPage = async ({
   const res = await fetch(
     `https://api.api-store.workers.dev/api/bazardor/products/${productId}`,
   );
+ 
+   if(!res.ok){
+    notFound()
+   }
 
   const data: IProduct = await res.json();
 
