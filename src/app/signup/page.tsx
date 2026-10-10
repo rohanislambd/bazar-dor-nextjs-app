@@ -12,9 +12,11 @@ import {
 import Image from "next/image";
 import { signIn, signUp } from "@/lib/auth-client";
 import toast from "react-hot-toast";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
+  const router = useRouter();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -27,39 +29,42 @@ export default function SignupForm() {
     console.log("Form data:", user);
     const { data, error } = await signUp.email({
       ...user,
-      callbackURL: "/",
+      callbackURL: "/signin",
     });
 
-    if (data) {
-      toast.success("Sign Up Successful");
-      redirect("/");
-    }
     if (error) {
-      toast.error(error.message ?? "Something went wrong");
+      toast.error(error.message ?? "Registration failed!");
+      return;
+    }
+
+    if (data) {
+      toast.success("Registration successful! Please log in.");
+      router.push("/signin");
     }
   };
-  const handleGoogleSignUp = async () =>{
-       const { error} = await signIn.social({
-        provider: "google",
-       })
-       if (error) {
+
+  const handleGoogleSignUp = async () => {
+    const { error } = await signIn.social({
+      provider: "google",
+      callbackURL: "/"
+    });
+    if (error) {
       toast.error(error.message ?? "Google sign up failed");
       return;
     }
-     toast.success("Redirecting to Google...")
-  }
+    toast.success("Redirecting to Google...");
+  };
 
-  const handleGithubSignUp = async () =>{
-    const {error} = await signIn.social({
+  const handleGithubSignUp = async () => {
+    const { error } = await signIn.social({
       provider: "github",
-      callbackURL:"/"
-    })
-    if(error){
+      callbackURL: "/",
+    });
+    if (error) {
       toast.error(error.message ?? "Github sign up failed");
     }
-    toast.success("Redirecting to Github...")
-  }
-
+    toast.success("Redirecting to Github...");
+  };
 
   return (
     <div>
@@ -112,7 +117,9 @@ export default function SignupForm() {
               >
                 <Label>পাসওয়ার্ড</Label>
                 <Input placeholder="কমপক্ষে ৮ অক্ষর" />
-                <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
+                <Description>
+                  Must be at least 8 characters with 1 uppercase and 1 number
+                </Description>
 
                 <FieldError />
               </TextField>
@@ -135,7 +142,6 @@ export default function SignupForm() {
               </div>
             </div>
 
-           
             <div className="flex gap-3">
               <Button
                 onClick={handleGoogleSignUp}
@@ -150,12 +156,11 @@ export default function SignupForm() {
                     width={15}
                   ></Image>
                 </span>
-                
                 Google দিয়ে চালিয়ে যান
               </Button>
 
               <Button
-              onClick={handleGithubSignUp}
+                onClick={handleGithubSignUp}
                 variant="outline"
                 className="flex-1 gap-2 border-default-300"
               >
