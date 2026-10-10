@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 BazarDor (বাজার দর)
 
-## Getting Started
+**BazarDor** is a modern web application that helps users explore products, browse categories, view product details, and enjoy a smooth shopping experience with secure authentication and personalized profile management.
 
-First, run the development server:
+## ✨ Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🔍 **Product Browsing:** Explore products through a clean and user-friendly interface.
+- 🗂️ **Category-Based Filtering:** Discover products by browsing different categories.
+- 📄 **Product Details:** View detailed information about individual products.
+- 🔐 **Secure Authentication:** Sign up, sign in, and use supported social login options.
+- 👤 **User Profile Management:** View user information, access the profile page, and update personal details.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 16** — React framework for building modern web applications.
+- **React 19** — Component-based user interface development.
+- **TypeScript** — Type-safe JavaScript development.
+- **HeroUI** — UI components and styling.
+- **Better Auth** — Authentication and session management.
+- **MongoDB** — Database integration.
+- **@better-auth/mongo-adapter** — MongoDB adapter for Better Auth.
+- **Lucide React** — Modern icon library.
+- **React Icons** — Additional icons for the user interface.
+- **React Hot Toast** — Toast notifications and user feedback.
+- **React Marquee Text** — Scrolling text effects.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+Follow these steps to run the project locally.
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js
+- npm
+- Git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. Clone the repository:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/rohanislambd/bazar-dor-nextjs-app.git
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Navigate to the project directory:
+
+   ```bash
+   cd bazar-dor-nextjs-app
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Create a `.env.local` file and configure the required environment variables for MongoDB, Better Auth, and any enabled authentication providers.
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🔗 Links
+
+- **GitHub Repository:** [BazarDor on GitHub](https://github.com/rohanislambd/bazar-dor-nextjs-app)
+- **Live Demo:** [Visit BazarDor]()
+
+## 👨‍💻 Developer
+
+**Rohan Islam**
+
+- GitHub: [@rohanislambd](https://github.com/rohanislambd)
+
+---
+
