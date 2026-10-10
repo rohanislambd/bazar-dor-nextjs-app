@@ -47,6 +47,19 @@ export default function SigninForm() {
      toast.success("Redirecting to Google...");
   };
 
+   const handleGithubSignIn = async () =>{
+    const {error} = await signIn.social({
+      provider: "github",
+      callbackURL:"/"
+    })
+    if(error){
+      toast.error(error.message ?? "Github sign in failed");
+    }
+    toast.success("Redirecting to Github...")
+  }
+
+
+
   return (
     <div>
       <div className="flex flex-col items-center gap-1 pt-8 pb-2">
@@ -132,6 +145,7 @@ export default function SigninForm() {
               </Button>
 
               <Button
+              onClick={handleGithubSignIn}
                 variant="outline"
                 className="flex-1 gap-2 border-default-300"
               >
