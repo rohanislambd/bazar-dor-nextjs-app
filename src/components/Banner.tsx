@@ -10,7 +10,7 @@ const Banner = () => {
       <div className=" md:flex items-center justify-between">
         {/* text */}
         <div className="space-y-4">
-          <p className="text-[#05893E]  bg-[#05893e36] max-w-45 rounded-2xl px-2 py-1">
+          <p className="text-[#05893E]  bg-[#05893e36] max-w-47 rounded-2xl px-2 py-1">
             {date}
           </p>
           <h2 className="text-4xl font-bold text-black ">
