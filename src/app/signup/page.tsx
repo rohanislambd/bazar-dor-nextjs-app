@@ -53,7 +53,7 @@ export default function SignupForm() {
       <div className="flex items-center justify-center bg-[#f0f7f4] p-4">
         {/*  */}
         <div className="w-full max-w-md shadow-sm border border-base-200 bg-[#FFFF] py-5 rounded-2xl">
-          <div className="px-6 pb-6">
+          <div className="px-6 pb-2">
             {/* form */}
             <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               {/* Name */}
