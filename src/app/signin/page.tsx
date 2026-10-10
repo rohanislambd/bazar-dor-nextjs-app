@@ -44,7 +44,7 @@ export default function SigninForm() {
       toast.error(error.message ?? "Google sign in failed");
       return;
     }
-     toast.success("Redirecting to Google...");
+     toast.success("Redirecting ...");
   };
 
    const handleGithubSignIn = async () =>{
@@ -55,7 +55,7 @@ export default function SigninForm() {
     if(error){
       toast.error(error.message ?? "Github sign in failed");
     }
-    toast.success("Redirecting to Github...")
+    toast.success("Redirecting ...")
   }
 
 

@@ -52,7 +52,7 @@ export default function SignupForm() {
       toast.error(error.message ?? "Google sign up failed");
       return;
     }
-    toast.success("Redirecting to Google...");
+    toast.success("Redirecting ...");
   };
 
   const handleGithubSignUp = async () => {
@@ -63,7 +63,7 @@ export default function SignupForm() {
     if (error) {
       toast.error(error.message ?? "Github sign up failed");
     }
-    toast.success("Redirecting to Github...");
+    toast.success("Redirecting ...");
   };
 
   return (
