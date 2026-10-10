@@ -14,9 +14,11 @@ import { signIn } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { Suspense } from "react";
 import AuthRedirectToast from "@/components/AuthRedirectToast";
+import { useRouter } from "next/navigation";
 
 
 export default function SigninForm() {
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -27,11 +29,12 @@ export default function SigninForm() {
     // console.log("Form data:", user);
     const { data, error } = await signIn.email({
       ...user,
-      callbackURL: "/",
+      
     });
 
     if (data) {
       toast.success("Sign In Successful");
+      router.push("/")
     }
     if (error) {
       toast.error(error.message ?? "Something went wrong");

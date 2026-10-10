@@ -23,11 +23,11 @@ const ProductDetailCard = ({ product }: IProductDetailCardProps) => {
 
       <div className="text-gray-600">{product.division}</div>
 
-      <div className="text-right text-red-700 ">
+      <div className="text-right font-semibold text-green-700 ">
         {toBanglaNumber(product.min)} টাকা
       </div>
 
-      <div className="text-right text-green-600">
+      <div className="text-right font-semibold text-red-600">
         {toBanglaNumber(product.max)} টাকা
       </div>
 
