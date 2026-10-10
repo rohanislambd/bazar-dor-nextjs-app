@@ -10,7 +10,7 @@ import {
   Description,
 } from "@heroui/react";
 import Image from "next/image";
-import { signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { redirect } from "next/navigation";
 
@@ -38,6 +38,16 @@ export default function SignupForm() {
       toast.error(error.message ?? "Something went wrong");
     }
   };
+  const handleGoogleSignUp = async () =>{
+       const { error} = await signIn.social({
+        provider: "google",
+       })
+       if (error) {
+      toast.error(error.message ?? "Google sign up failed");
+      return;
+    }
+     toast.success("Redirecting to Google...")
+  }
 
   return (
     <div>
@@ -116,6 +126,7 @@ export default function SignupForm() {
            
             <div className="flex gap-3">
               <Button
+                onClick={handleGoogleSignUp}
                 variant="outline"
                 className="flex-1 gap-2 border-default-300"
               >

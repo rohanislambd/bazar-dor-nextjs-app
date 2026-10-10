@@ -29,19 +29,28 @@ export default function SigninForm() {
 
     if (data) {
       toast.success("Sign In Successful");
-      
     }
     if (error) {
       toast.error(error.message ?? "Something went wrong");
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    const { error } = await signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
+    if (error) {
+      toast.error(error.message ?? "Google sign in failed");
+      return;
+    }
+     toast.success("Redirecting to Google...");
+  };
+
   return (
     <div>
       <div className="flex flex-col items-center gap-1 pt-8 pb-2">
-        <div className="text-2xl font-bold text-center">
-          সাইন ইন
-        </div>
+        <div className="text-2xl font-bold text-center">সাইন ইন</div>
         <div className="text-center text-default-500 text-sm">
           বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
         </div>
@@ -53,7 +62,6 @@ export default function SigninForm() {
           <div className="px-6 pb-2">
             {/* form */}
             <Form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-              
               {/* Email */}
               <TextField name="email" type="email" isRequired>
                 <Label>ইমেইল</Label>
@@ -81,7 +89,9 @@ export default function SigninForm() {
               >
                 <Label>পাসওয়ার্ড</Label>
                 <Input placeholder="কমপক্ষে ৮ অক্ষর" />
-                <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
+                <Description>
+                  Must be at least 8 characters with 1 uppercase and 1 number
+                </Description>
 
                 <FieldError />
               </TextField>
@@ -104,9 +114,9 @@ export default function SigninForm() {
               </div>
             </div>
 
-           
             <div className="flex gap-3">
               <Button
+                onClick={handleGoogleSignIn}
                 variant="outline"
                 className="flex-1 gap-2 border-default-300"
               >
@@ -118,7 +128,6 @@ export default function SigninForm() {
                     width={15}
                   ></Image>
                 </span>
-                
                 Google দিয়ে চালিয়ে যান
               </Button>
 
