@@ -87,7 +87,7 @@ const ProductDetailPage = async ({
 
           {/* সর্বাধিক দাম */}
           <div className="bg-[#F0F5F0] rounded-xl p-4 text-center">
-            <p>সর্বনিম্ন দাম</p>
+            <p>সর্বাধিক দাম</p>
             <h2 className="text-red-500 font-bold text-[24px] ">
               {toBanglaNumber(Math.max(...productDetails.map((p) => p.max)))}{" "}
               <span className="text-[15px]">টাকা</span>{" "}
