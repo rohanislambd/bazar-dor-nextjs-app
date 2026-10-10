@@ -1,23 +1,31 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import { auth } from './lib/auth'
-import { headers } from 'next/headers'
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { auth } from "./lib/auth";
 
- 
-// This function can be marked `async` if using `await` inside
 export async function proxy(request: NextRequest) {
-   const session = await auth.api.getSession({
-     headers: await headers()
-   })
+  const session = await auth.api.getSession({
+    headers: request.headers,
+  });
 
-   const user = session?.user 
-   if(!user){
-      return NextResponse.redirect(new URL('/signin', request.url))
-   }
+  if (!session?.user) {
+    const { pathname, search } = request.nextUrl;
 
- 
+    const signInUrl = new URL("/signin", request.url);
+
+    if (pathname === "/profile") {
+      signInUrl.searchParams.set("reason", "profile_required");
+    } else {
+      signInUrl.searchParams.set("reason", "auth_required");
+    }
+
+    signInUrl.searchParams.set("callbackUrl", pathname + search);
+
+    return NextResponse.redirect(signInUrl);
+  }
+
+  return NextResponse.next();
 }
- 
+
 export const config = {
-  matcher: ['/profile', '/products/:path'],
-}
+  matcher: ["/profile", "/products/:path*"],
+};

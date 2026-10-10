@@ -12,6 +12,9 @@ import {
 import Image from "next/image";
 import { signIn } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+import { Suspense } from "react";
+import AuthRedirectToast from "@/components/AuthRedirectToast";
+
 
 export default function SigninForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,13 +58,16 @@ export default function SigninForm() {
     if(error){
       toast.error(error.message ?? "Github sign in failed");
     }
-    toast.success("Redirecting ...")
+    toast.success("Redirecting to Github...")
   }
 
 
 
   return (
     <div>
+      <Suspense fallback={null}>
+        <AuthRedirectToast />
+      </Suspense>
       <div className="flex flex-col items-center gap-1 pt-8 pb-2">
         <div className="text-2xl font-bold text-center">সাইন ইন</div>
         <div className="text-center text-default-500 text-sm">
