@@ -29,7 +29,7 @@ export default function SignupForm() {
     // console.log("Form data:", user);
     const { data, error } = await signUp.email({
       ...user,
-      callbackURL: "/signin",
+      
     });
 
     if (error) {

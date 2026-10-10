@@ -67,7 +67,7 @@ Follow these steps to run the project locally.
 ## 🔗 Links
 
 - **GitHub Repository:** [BazarDor on GitHub](https://github.com/rohanislambd/bazar-dor-nextjs-app)
-- **Live Demo:** [Visit BazarDor]()
+- **Live Demo:** [Visit BazarDor](https://bazar-dor-green-eight.vercel.app/)
 
 ## 👨‍💻 Developer
 
