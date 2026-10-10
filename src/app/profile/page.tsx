@@ -49,7 +49,7 @@ const ProfilePage = () => {
     });
   };
   return (
-    <div className="min-w-3xl mx-auto mt-25  p-6">
+    <div className="md:w-3xl mx-auto mt-25  md:p-6">
       <div>
         <h2 className="text-2xl font-bold">আমার প্রোফাইল</h2>
         <p className="text-[14px] text-[#1D271F]">
@@ -57,7 +57,7 @@ const ProfilePage = () => {
         </p>
       </div>
 
-      <div className=" flex justify-between items-center  mt-6 p-6 rounded-xl bg-white shadow">
+      <div className=" flex justify-between items-center  mt-6 p-3  md:p-6 rounded-xl bg-white shadow">
         <div className="flex gap-3 items-center ">
           {user?.image ? (
             <div className="w-14 px-2 pt-2  bg-base-300 rounded-xl  ">
@@ -77,7 +77,7 @@ const ProfilePage = () => {
 
           <div>
             <p className="text-xl font-semibold">{user?.name}</p>
-            <p className="text-[#1D271F]">{user?.email}</p>
+            <p className="hidden md:block text-[#1D271F]">{user?.email}</p>
           </div>
         </div>
         <div>

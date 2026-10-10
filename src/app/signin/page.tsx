@@ -21,7 +21,7 @@ export default function SigninForm() {
       email: string;
       password: string;
     };
-    console.log("Form data:", user);
+    // console.log("Form data:", user);
     const { data, error } = await signIn.email({
       ...user,
       callbackURL: "/",
@@ -127,11 +127,11 @@ export default function SigninForm() {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-col md:flex-row items-center">
               <Button
                 onClick={handleGoogleSignIn}
                 variant="outline"
-                className="flex-1 gap-2 border-default-300"
+                className="flex-1 py-3 gap-2 border-default-300"
               >
                 <span>
                   <Image
@@ -147,7 +147,7 @@ export default function SigninForm() {
               <Button
               onClick={handleGithubSignIn}
                 variant="outline"
-                className="flex-1 gap-2 border-default-300"
+                className="flex-1 py-3 gap-2 border-default-300"
               >
                 <span>
                   <Image

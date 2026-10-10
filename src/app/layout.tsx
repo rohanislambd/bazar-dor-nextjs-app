@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Marquee from "@/components/Marquee";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
@@ -29,7 +30,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Marquee/>
      
 
-        {children}
+         <main className="flex-1">
+          {children}
+         </main>
+
+        <Footer/>
            <Toaster />
         
         </body>
