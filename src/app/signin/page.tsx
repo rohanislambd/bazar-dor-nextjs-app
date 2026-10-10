@@ -58,7 +58,7 @@ export default function SigninForm() {
     if(error){
       toast.error(error.message ?? "Github sign in failed");
     }
-    toast.success("Redirecting to Github...")
+    toast.success("Redirecting ...")
   }
 
 
@@ -120,7 +120,7 @@ export default function SigninForm() {
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium mt-2"
                 size="lg"
               >
-                অ্যাকাউন্ট তৈরি করুন
+                সাইন ইন
               </Button>
             </Form>
 

@@ -5,8 +5,11 @@ import Link from 'next/link';
 import { toBanglaNumber } from './shared/common';
 
 const Products =async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
      
+    if(!res.ok){
+      throw new Error('Failed to fetch')
+    }
     const products: IProduct[] = await res.json();
     // console.log(products);
 

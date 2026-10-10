@@ -12,8 +12,12 @@ const CategoryDetailPage = async ({
   const { categoryId } = await params;
 
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryId}`,
+    `https://openapi.programming-hero.com/api/bazardor/products?category=${categoryId}`,
   );
+
+  if(!res.ok){
+    throw new Error("Failed to fetch ")
+  }
   const data: IProduct[] = await res.json();
   
  if ( data.length === 0) {
