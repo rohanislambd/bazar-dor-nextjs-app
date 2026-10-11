@@ -111,7 +111,7 @@ const UserInfo = () => {
               type="button"
               role="menuitem"
               onClick={handleSignOut}
-              className="flex items-center gap-2 text-left text-red-600 hover:text-red-700 transition-colors"
+              className="flex items-center gap-2 text-left text-red-600 cursor-pointer hover:text-red-700 transition-colors"
             >
               <LogOut size={16} />
               সাইন আউট

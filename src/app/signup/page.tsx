@@ -10,7 +10,7 @@ import {
   Description,
 } from "@heroui/react";
 import Image from "next/image";
-import { signIn, signUp } from "@/lib/auth-client";
+import { signIn, signOut, signUp } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -24,12 +24,10 @@ export default function SignupForm() {
       name: string;
       email: string;
       password: string;
-      image: string;
     };
-    // console.log("Form data:", user);
+    console.log("Form data:", user);
     const { data, error } = await signUp.email({
       ...user,
-      
     });
 
     if (error) {
@@ -38,9 +36,20 @@ export default function SignupForm() {
     }
 
     if (data) {
-      toast.success("Registration successful! Please log in.");
-      router.push("/signin");
+      await signOut({
+        fetchOptions:{
+          onSuccess: () => {
+             toast.success("Registration successful! Please log in.");
+             router.replace("/signin");
+             router.refresh();
+          }
+        }
+      });
+      // toast.success("Registration successful! Please log in.");
+      // router.push("/signin");
     }
+
+    
   };
 
   const handleGoogleSignUp = async () => {

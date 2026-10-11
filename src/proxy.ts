@@ -7,17 +7,22 @@ export async function proxy(request: NextRequest) {
     headers: request.headers,
   });
 
-  if (!session?.user) {
-    const { pathname, search } = request.nextUrl;
+  const { pathname, search } = request.nextUrl;
+  const isAuthPage = pathname === "/signin" || pathname === "/signup";
 
+  // লগইন করা ইউজার signin/signup এ যেতে পারবে না
+  if (session?.user && isAuthPage) {
+    return NextResponse.redirect(new URL("/", request.url));
+  }
+
+  // লগইন না করা ইউজার protected route এ যেতে পারবে না
+  if (!session?.user && !isAuthPage) {
     const signInUrl = new URL("/signin", request.url);
 
-    if (pathname === "/profile") {
-      signInUrl.searchParams.set("reason", "profile_required");
-    } else {
-      signInUrl.searchParams.set("reason", "auth_required");
-    }
-
+    signInUrl.searchParams.set(
+      "reason",
+      pathname === "/profile" ? "profile_required" : "auth_required"
+    );
     signInUrl.searchParams.set("callbackUrl", pathname + search);
 
     return NextResponse.redirect(signInUrl);
@@ -27,5 +32,5 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/profile", "/products/:path*"],
+  matcher: ["/profile", "/products/:path*", "/signin", "/signup"],
 };
