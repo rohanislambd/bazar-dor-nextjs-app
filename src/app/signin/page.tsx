@@ -34,7 +34,8 @@ export default function SigninForm() {
 
     if (data) {
       toast.success("Sign In Successful");
-      router.push("/")
+      router.replace("/")
+      router.refresh()
     }
     if (error) {
       toast.error(error.message ?? "Something went wrong");
