@@ -6,7 +6,7 @@ interface IProductCard {
 }
 const ProductCard = ({ product }: IProductCard) => {
   
-//   console.log(product);
+
   return (
     <div className="shadow  bg-[#FFFF] rounded-xl p-4" id="product">
       <div>

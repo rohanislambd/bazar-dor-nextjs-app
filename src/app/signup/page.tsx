@@ -25,7 +25,7 @@ export default function SignupForm() {
       email: string;
       password: string;
     };
-    console.log("Form data:", user);
+    
     const { data, error } = await signUp.email({
       ...user,
     });
@@ -45,8 +45,7 @@ export default function SignupForm() {
           }
         }
       });
-      // toast.success("Registration successful! Please log in.");
-      // router.push("/signin");
+   
     }
 
     

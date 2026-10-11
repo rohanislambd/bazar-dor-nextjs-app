@@ -11,11 +11,10 @@ const Products =async () => {
       throw new Error('Failed to fetch')
     }
     const products: IProduct[] = await res.json();
-    // console.log(products);
-
+   
     const risers = products.filter((product) => product.change.dir === 'up').sort((a, b)=> b.change.pct - a.change.pct).slice(0, 6);
 
-    // console.log(risers);
+  
 
    const fallers = products
   .filter((product) => product.change.dir === "down")

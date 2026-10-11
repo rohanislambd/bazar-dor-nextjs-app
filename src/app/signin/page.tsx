@@ -26,7 +26,7 @@ export default function SigninForm() {
       email: string;
       password: string;
     };
-    // console.log("Form data:", user);
+    
     const { data, error } = await signIn.email({
       ...user,
       
@@ -61,6 +61,7 @@ export default function SigninForm() {
     })
     if(error){
       toast.error(error.message ?? "Github sign in failed");
+      return;
     }
     toast.success("Redirecting ...")
   }

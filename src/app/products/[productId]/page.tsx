@@ -26,7 +26,7 @@ const ProductDetailPage = async ({
     const avgB = (b.min + b.max) / 2;
     return avgA - avgB;
   });
-  //   console.log(data);
+  
 
   const toBanglaNumber = (value: number) =>
     String(value).replace(/\d/g, (digit) => "০১২৩৪৫৬৭৮৯"[Number(digit)]);

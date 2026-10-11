@@ -12,8 +12,7 @@ const Navlinks = async () => {
   }
 
   const data: ICategroy[] = await res.json();
-  // console.log(data);
-
+  
   return (
     <div className="container mx-auto flex mt-4 space-x-9 px-3">
       <div className="flex overflow-x-auto whitespace-nowrap md:flex-nowrap md:overflow-visible">
